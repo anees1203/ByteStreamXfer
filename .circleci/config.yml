@@ -1,27 +1,25 @@
 version: 2.1
-orbs:
-  node: circleci/node@5.1.0
+
 jobs:
   run_tests:
+    docker:
+      - image: cimg/python:3.9 
     steps:
       - checkout
       - run:
-          name: Install Node.js and npm
+          name: Setup Python environment
           command: |
-            sudo apt-get update
-            sudo apt-get install -y nodejs npm
+            python -m venv venv
+            . venv/bin/activate
       - run:
-          name: Install project dependencies
-          command: npm install
+          name: Run placeholder for tests
+          command: echo "No tests specified yet"
 
 workflows:
   version: 2
-  build_and_deploy:
+  build_and_test:
     jobs:
-      - run_tests
-      - build_and_push:
-          requires:
-            - run_tests
+      - run_tests:
           filters:
             branches:
               only: main
