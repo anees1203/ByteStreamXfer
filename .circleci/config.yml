@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  run_tests:
+    docker:
+      - image: cimg/python:3.9 
+    steps:
+      - checkout
+      - run:
+          name: Setup Python environment
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+      - run:
+          name: Run placeholder for tests
+          command: echo "No tests specified yet"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - run_tests:
+          filters:
+            branches:
+              only: main
