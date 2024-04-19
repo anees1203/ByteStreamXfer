@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File - BytestreamXfer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='download.js') }}" defer></script>
+</head>
+<header>
+    <div id="logo">BytestreamXfer</div>
+</header>
+
+<body>
+    <div id="download-container">
+        <h1>Connect to Nearby Devices</h1>
+        <p>Use this page to directly transfer files from your phone to your computer or to download files from another computer on the same network.</p>
+
+        <form method="POST" action="{{ url_for('download_page') }}">
+            <div class="input-group">
+                <input type="text" id="code-input" name="code" maxlength="4" placeholder="Enter the 4-digit code">
+                <button id="confirm-button" type="submit">Confirm</button>
+            </div>
+        </form>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 BytestreamXfer. All rights reserved.</p>
+    </footer>
+</body>
+</html>

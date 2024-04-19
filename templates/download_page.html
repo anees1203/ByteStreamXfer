@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div id="logo">BytestreamXfer</div>
+    </header>
+
+    <main>
+        <div id="download-container">
+            <h1>Ready to Download</h1>
+            <p>File: {{ filename }}</p>
+            <!-- Direct download link or button -->
+            <a href="{{ url_for('download_file_direct', code=code) }}" download="{{ filename }}">Download File</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 BytestreamXfer. All rights reserved.</p>
+    </footer>
+</body>
+</html>

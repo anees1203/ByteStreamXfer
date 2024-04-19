@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BytestreamXfer - Share Your Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <div id="logo">BytestreamXfer</div>
+    </header>
+
+    <main>
+
+        <div class="background-text" id="upload-bg-text">
+            <p><strong>Securely Send and Receive Files</strong><br><span class="colored-text">Fast and Reliable</span></p>
+        </div>
+
+        <div id="actions-container">
+            <div id="upload-area" onclick="document.getElementById('file-input').click()">
+                <input type="file" id="file-input" hidden onchange="handleFileUpload(this.files)" multiple>
+                <div class="action-icon">+</div>
+                <p>Click to browse or drag files here to start sharing</p>
+            </div>
+            
+            <a href="/download" id="download-area">
+                <div class="action-icon"><i class="fas fa-file-download"></i></div>
+                <p>Click here to download</p>
+            </a>
+        </div>
+
+        <div id="file-info" style="display: none;">
+            <img id="qr-code" src="" alt="QR Code">
+            <div id="file-details">
+                <span id="file-name"></span>
+                <span id="file-size"></span>
+            </div>
+            <div id="sharing-code"></div>
+            <p id="keep-open-notice">Keep this page open to continue sharing.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 BytestreamXfer. All rights reserved.</p>
+    </footer>
+</body>
+</html>
